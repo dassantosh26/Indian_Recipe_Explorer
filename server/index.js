@@ -13,12 +13,7 @@ dotenv.config();
 connectDb();
 const app = express();
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://indian-recipe-explorer.onrender.com",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use("/api/v1/recipe", recipeRouter);
 app.use("/api/v1/user", userRouter);
 
