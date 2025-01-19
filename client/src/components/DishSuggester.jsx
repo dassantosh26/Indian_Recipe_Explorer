@@ -1,7 +1,6 @@
 /** @format */
 import { useState, useContext, useEffect, useRef } from "react";
 import { DishContext } from "../context/DishContext";
-// import banner from './../assets/banner.jpg';
 import banner from "./../assets/WhatsApp Image 2025-01-19 at 12.44.58 AM.jpeg";
 
 const DishSuggester = () => {
@@ -10,7 +9,7 @@ const DishSuggester = () => {
   const [suggestedDishes, setSuggestedDishes] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [ingredientSuggestions, setIngredientSuggestions] = useState([]);
-  const [showSuggestions, setShowSuggestions] = useState(false); // Tracking visibility of suggestions box
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef(null);
 
   // Extracting all unique ingredients
@@ -102,10 +101,15 @@ const DishSuggester = () => {
   }, []);
 
   return (
-    <div>
-      <div className="flex flex-col lg:flex-row lg:justify-center lg:items-center">
-        <img src={banner} alt="" className="hidden w-1/2 lg:block" />
-        <div className="w-full p-4 lg:w-1/2">
+    <div className="min-h-screen">
+      <div className="flex flex-col lg:flex-row lg:justify-center lg:items-start">
+        {/* Left Side: Banner Image */}
+        <div className="w-full lg:w-1/2 lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden">
+          <img src={banner} alt="" className="object-cover w-full h-full" />
+        </div>
+
+        {/* Right Side: Content */}
+        <div className="w-full p-4 lg:w-1/2 lg:overflow-y-auto">
           <h2 className="mb-4 text-2xl font-bold">Dish Suggester</h2>
           <div className="relative flex mb-4 lg:w-[500px] w-[340px] md:w-[420px]">
             <input
@@ -114,7 +118,7 @@ const DishSuggester = () => {
               value={inputValue}
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}
-              className="flex-grow p-2 border rounded "
+              className="flex-grow p-2 border rounded"
             />
             <button
               onClick={() => addIngredient(inputValue)}
@@ -127,7 +131,7 @@ const DishSuggester = () => {
             {showSuggestions && ingredientSuggestions.length > 0 && (
               <div
                 ref={suggestionsRef}
-                className="absolute left-0 z-10 w-full overflow-y-auto bg-white border border-gray-300 rounded shadow-lg top-full max-h-48"
+                className="absolute left-0 z-10 w-full mt-1 overflow-y-auto bg-white border border-gray-300 rounded shadow-lg top-full max-h-48"
               >
                 <ul>
                   {ingredientSuggestions.map((ingredient, index) => (
