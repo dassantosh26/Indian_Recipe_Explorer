@@ -36,8 +36,8 @@ const Login = () => {
   return (
     <Container maxWidth="sm">
       <Paper elevation={3} sx={{ padding: 4, marginTop: 8 }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Login
+        <Typography variant="h4" align="center" gutterBottom className="flex items-center justify-center">
+          <img src="/logo.png" alt="" />
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
           {/* Email Field */}
@@ -68,26 +68,21 @@ const Login = () => {
               {error}
             </Typography>
           )}
-          {/* Submit Button */}
-          <Button
+          <button
             type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            className="w-full p-3 my-3 text-white transition duration-300 ease-in-out rounded-lg bg-custom-header-color hover:opacity-80"
           >
             Login
-          </Button>
-          {/* Signup Link */}
+          </button>
           <Typography align="center">
             Don't have an account?
-            <Button
+            <button
               component={Link}
               to="/signup"
-              variant="text"
-              sx={{ textTransform: "none", color: "primary.main" }}
+              className="text-custom-header-color"
             >
               Sign up
-            </Button>
+            </button>
           </Typography>
         </Box>
       </Paper>
