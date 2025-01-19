@@ -356,4 +356,4 @@ For any questions or feedback, please reach out to:
 
 ---
 
-Thank you for exploring the **Indian Cuisine Explorer**! 🍛
+Thank you for exploring the **Indian Recipe Explorer**! 🍛
